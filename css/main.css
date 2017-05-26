@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 720px;
+}
+
+.container{
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    background-color: rgba(52, 73, 94, 0.7);
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.container img{
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+}
+
+input{
+    height: 45px;
+    width: 300px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding-left: 40px;
+}
+
+.form-input::before{
+    content: "\f007";
+    position: absolute;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 35px;
+}
+
+.btn-submit{
+    padding: 15px 30px;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    
+    background-color: 2EC771;
+    border-bottom: 4px solid #27AE60;
+}

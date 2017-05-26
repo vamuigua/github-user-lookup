@@ -1,0 +1,23 @@
+{
+  "name": "github-user-lookup",
+  "description": "A Basic Web App that searches Github users repos and displays them",
+  "main": "index.js",
+  "authors": [
+    "Victor Allen"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/vamuigua/github-user-lookup",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "moment": "^2.18.1"
+  }
+}
