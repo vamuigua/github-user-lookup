@@ -9,12 +9,16 @@ function output() {}
 //function to make an authenticated API call for username
 gitlook.prototype.getUsername = function(username) {
   $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response) {
+    $('#result-img').html('<img src="' + response.avatar_url + '">');
+    if(response.name === null){
+      response.name = "No name set";
+    }
     $('#result-name').text(response.name);
     event.preventDefault();
-    //displayName(response.name);
   }).fail(function(error) {
     $('#result-name').text(error.responseJSON.message);
     $('#repos').empty();
+    $('#result-img').empty();
   });
 };
 
