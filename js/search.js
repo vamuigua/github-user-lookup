@@ -1,37 +1,38 @@
 var apiKey = require('./../.env').apiKey;
 
-//Call-back function after gitlook function
-function output() {}
-
 //Gitlook Function
 function gitlook() {}
 
+//Call-back function after gitlook function
+function output() {}
+
 //function to make an authenticated API call for username
-gitlook.prototype.getUsername = function (username) {
-    $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function (response) {
-        console.log(response.name);
-        $('#result-name').text("Username:" + response.name);
-        //displayName(response.name);
-    }).fail(function (error) {
-        console.log(error.responseJSON.message);
-    });
+gitlook.prototype.getUsername = function(username) {
+  $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response) {
+    $('#result-name').text(response.name);
+    event.preventDefault();
+    //displayName(response.name);
+  }).fail(function(error) {
+    $('#result-name').text(error.responseJSON.message);
+    $('#repos').empty();
+  });
 };
 
-
 //function to make an authenticated API call for Repos
-output.prototype.getRepos = function (username, displayRepos) {
-    $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function (response) {
-        for (var i = 0; i < response.length + 1; i++) {
-            if (response[i].description === null) {
-                response[i].description = 'No description in repo';
-            } else {
-                displayRepos(response[i].name, response[i].description);
-            }
+output.prototype.getRepos = function(username, displayRepos) {
+  $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function(response) {
+    $('#repos').empty();
+    for (var i = 0; i < response.length + 1; i++) {
+      if (response[i].description === null) {
+        response[i].description = 'No description in repo';
+      }
+      displayRepos(response[i].name, response[i].description);
 
-        }
-    }).fail(function (error) {
-        console.log(error.responseJSON.message);
-    });
+
+    }
+  }).fail(function(error) {
+    console.log(error.responseJSON.message);
+  });
 };
 
 
